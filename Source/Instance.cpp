@@ -2,7 +2,7 @@
 
 ude_welcome::Instance::Instance()
 {
-
+    initInfo.inlineComponents.push_back(&welcome);
 }
 
 void ude_welcome::Instance::begin()
@@ -31,5 +31,10 @@ ude_welcome::Instance::~Instance()
 void ude_welcome::Instance::onEventConfigureStyle(ImGuiStyle& style, ImGuiIO& io)
 {
 
+}
+
+void ude_welcome::Instance::next() noexcept
+{
+    page++;
 }
 

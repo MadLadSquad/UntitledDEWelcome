@@ -19,8 +19,8 @@ set(BUILD_SHARED_LIBS OFF)
 
 option(USE_OS_MODULE "Use the operating system module" ON)
 option(USE_AUDIO_MODULE "Use the audio module" OFF)
-option(USE_LOCALE_MODULE "Use the locale module" OFF)
-option(USE_NETWORKING_MODULE "Use the networking module" OFF)   # Not functional right now
+option(USE_LOCALE_MODULE "Use the locale module" ON)
+option(USE_NETWORKING_MODULE "Use the networking module" ON)   # Not functional right now
 option(USE_PLOTTING_MODULE "Use the plotting module" OFF)
 option(USE_UNDO_MODULE "Use the Undo/Redo module" OFF)          # Not functional right now
 option(USE_VIDEO_MODULE "Use the video module" OFF)             # Not functional right now

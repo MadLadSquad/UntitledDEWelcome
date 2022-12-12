@@ -1,5 +1,6 @@
 #pragma once
 #include <Framework.hpp>
+#include <Welcome.hpp>
 
 namespace ude_welcome
 {
@@ -13,8 +14,15 @@ namespace ude_welcome
         virtual ~Instance() override;
 
         virtual void onEventConfigureStyle(ImGuiStyle& style, ImGuiIO& io) override;
-    private:
 
+        void next() noexcept;
+    private:
+        Welcome welcome;
+
+        UImGui::InlineComponent* components = { &welcome };
+
+
+        size_t page = 0;
     };
 }
 
