@@ -274,17 +274,6 @@ else()
             target_link_libraries(UntitledImGuiFramework Fontconfig::Fontconfig)
         endif()
     endif()
-    if (USE_AVIF_SUPPORT)
-        target_link_libraries(ude-welcome avif)
-    endif()
-
-    if (USE_JPEG_XL_SUPPORT)
-        target_link_libraries(ude-welcome jxl)
-    endif()
-
-    if (USE_WEBP_SUPPORT)
-        target_link_libraries(ude-welcome webp)
-    endif()
 endif()
 
 # ----------------------------------------------------------------------------------------------------------------------
