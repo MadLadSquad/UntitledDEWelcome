@@ -17,3 +17,18 @@ enabled-modules:
   toggles: false
   text_utils: false
   cli_parser: false
+install-override:
+  unix:
+    framework:
+      - test
+    application:
+      - test
+    binary:
+      - test
+  windows:
+    framework:
+      - test
+    application:
+      - test
+    binary:
+      - test
