@@ -18,12 +18,17 @@ set(UIMGUI_PLATFORM "DESKTOP" CACHE STRING "Can be set to DESKTOP when building 
 # ------------------------------------------------- Add subdirectories -------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
 
+option(BUILD_VARIANT_STATIC "Builds the Framework, application library(exists only on Unix) and executable into a single
+    executable binary" OFF)
+
 add_subdirectory(Framework/ThirdParty/glfw)
 add_subdirectory(Framework/ThirdParty/glew)
 add_subdirectory(Framework/Modules/CLIParser/ThirdParty/UntitledCLIParser/ThirdParty/utfcpp)
 add_subdirectory(Framework/ThirdParty/vulkan-headers)
 
-set(BUILD_SHARED_LIBS OFF)
+if (NOT BUILD_VARIANT_STATIC)
+    set(BUILD_SHARED_LIBS ON)
+endif()
 add_subdirectory(Framework/ThirdParty/yaml-cpp)
 add_subdirectory(Framework/ThirdParty/freetype)
 set(BUILD_SHARED_LIBS OFF)
@@ -31,9 +36,6 @@ set(BUILD_SHARED_LIBS OFF)
 # ----------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------- Add compile options ------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
-
-option(BUILD_VARIANT_STATIC "Builds the Framework, application library(exists only on Unix) and executable into a single
-    executable binary" OFF)
 
 option(BUILD_VARIANT_VENDOR "If set to OFF will use the globally installed framework(not recommended on Windows)" ON)
 
