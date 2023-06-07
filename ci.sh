@@ -24,5 +24,5 @@ cd ../../../
 # Build the project
 mkdir build || exit
 cd build || exit
-cmake .. -DBUILD_VARIANT_STATIC=ON
+cmake ..
 MSBuild.exe ude-welcome.sln -property:Configuration=Release -property:Platform=x64 -property:maxCpuCount="${cpus}" || make -j "${cpus}" || exit
