@@ -9,44 +9,47 @@ void ude_welcome::Instance::begin()
 {
     beginAutohandle();
     madladsquad.loadImGui();
-    //for (auto& a : softwareSuite)
-    //    a.icon.loadImGui();
-    //for (auto& a : deSoftware)
-    //    a.icon.loadImGui();
-    //for (auto& a : flowSoftware)
-    //    a.icon.loadImGui();
+    flow.loadImGui();
+    for (auto& a : softwareSuite)
+    {
+        a.icon.init(a.iconName);
+        a.icon.loadImGui();
+    }
+
+    for (auto& a : deSoftware)
+    {
+        a.icon.init(a.iconName);
+        a.icon.loadImGui();
+    }
+
+    for (auto& a : flowSoftware)
+    {
+        a.icon.init(a.iconName);
+        a.icon.loadImGui();
+    }
 }
 
 void ude_welcome::Instance::tick(float deltaTime)
 {
     tickAutohandle(deltaTime);
 
-    ImGui::ShowDemoWindow((void*)nullptr);
     if (ImGui::BeginTabBar("Test"))
     {
         if (ImGui::BeginTabItem("Welcome", (bool*)nullptr))
         {
             ImGui::TextWrapped("Welcome to the Untitled Desktop Environment!\n\nThe completely independent and "
-                               "highly hackable desktop environment for Linux and other systems based on "
-                               "components by the freedesktop foundation.");
+                               "highly hackable open-source desktop environment for Linux and other systems based on "
+                               "components by the freedesktop foundation.\nIt is minimal by default"
+                               "but really hackable and allows users to control all features of their applications.");
             ImGui::EndTabItem();
         }
         if (ImGui::BeginTabItem("About us", (bool*)nullptr))
         {
             ImGui::TextWrapped("The UntitledDesktopEnvironment is developed by MadLadSquad, a Bulgarian free "
-                               "software collective. These are our priorities:");
-            ImGui::BulletText("User freedom - Replace any application, modify application features, etc");
-            ImGui::BulletText("Cross-desktop compatibility - Adapter programs to merge QT and GTK based desktops "
-                              "with our own");
-            ImGui::BulletText("A fully community-centered approach to development - Everyone is a user");
-            ImGui::BulletText("A great UX, no matter the user's experience - Because all users are valid");
-            ImGui::BulletText("A great multilingual experience - Your human language matters");
-            ImGui::BulletText("A great distribution experience - Have the latest version of applications "
-                              "available within a day");
-            ImGui::BulletText("A great theming experience - Full and easy customisation using cross-desktop "
-                              "theming and format adapters");
-
-            ImGui::Image((void*)(intptr_t)madladsquad.get(), { 50.0f, 50.0f });
+                               "software collective. We're mostly volunteers that work on it in our free time."
+                               "\n\nMore information, including getting involved, contributing and funding can be found"
+                               "on our website at: https://madladsquad.com/");
+            ImGui::Image((void*)(intptr_t)madladsquad.get(), { 96.0f, 96.0f });
             if (ImGui::IsItemHovered())
             {
                 ImGui::BeginTooltip();
@@ -54,26 +57,30 @@ void ude_welcome::Instance::tick(float deltaTime)
                 ImGui::EndTooltip();
             }
             ImGui::SameLine();
-            ImGui::Image((void*)(intptr_t)flow.get(), { 50.0f, 50.0f });
+            ImGui::Image((void*)(intptr_t)flow.get(), { 96.0f, 96.0f });
+            if (ImGui::IsItemHovered())
+            {
+                ImGui::BeginTooltip();
+                ImGui::Text("Untitled Desktop Flow logo");
+                ImGui::EndTooltip();
+            }
 
             ImGui::EndTabItem();
         }
         if (ImGui::BeginTabItem("Software", (bool*)nullptr))
         {
-            int gridItems = static_cast<int>(ImGui::GetContentRegionAvail().x / 50);
+            int gridItems = static_cast<int>(ImGui::GetContentRegionAvail().x / 96.0f);
             size_t i = 0;
-            ImGui::Text("UntitledApplicationSuite");
+            ImGui::Text("UntitledApplicationSuite:\n");
             if (ImGui::BeginTable("UntitledApplicationSuite table", gridItems))
             {
-                ImGui::NextColumn();
+                ImGui::TableNextColumn();
 
                 for (auto& a : softwareSuite)
                 {
                     ImGui::PushID(i);
 
-                    std::cout << i << std::endl;
-
-                    ImGui::Image((void*)(intptr_t)a.icon->get(), { 50.0f, 50.0f });
+                    ImGui::Image((void*)(intptr_t)a.icon.get(), { 96.0f, 96.0f });
                     if (ImGui::IsItemHovered())
                     {
                         ImGui::BeginTooltip();
@@ -81,22 +88,21 @@ void ude_welcome::Instance::tick(float deltaTime)
                         ImGui::EndTooltip();
                     }
                     ImGui::TextWrapped("%s", a.name.c_str());
-                    ImGui::NextColumn();
+                    ImGui::TableNextColumn();
 
                     ImGui::PopID();
                     i++;
                 }
                 ImGui::EndTable();
             }
-            ImGui::Text("UntitledDesktop applications");
+            ImGui::Text("UntitledDesktop applications:\n");
             if (ImGui::BeginTable("UDE Application table", gridItems))
             {
-                ImGui::NextColumn();
-                for (auto& a : softwareSuite)
+                ImGui::TableNextColumn();
+                for (auto& a : deSoftware)
                 {
                     ImGui::PushID(i);
-
-                    ImGui::Image((void*)(intptr_t)a.icon->get(), { 50.0f, 50.0f });
+                    ImGui::Image((void*)(intptr_t)a.icon.get(), { 96.0f, 96.0f });
                     if (ImGui::IsItemHovered())
                     {
                         ImGui::BeginTooltip();
@@ -104,7 +110,7 @@ void ude_welcome::Instance::tick(float deltaTime)
                         ImGui::EndTooltip();
                     }
                     ImGui::TextWrapped("%s", a.name.c_str());
-                    ImGui::NextColumn();
+                    ImGui::TableNextColumn();
 
                     ImGui::PopID();
                     i++;
@@ -112,15 +118,14 @@ void ude_welcome::Instance::tick(float deltaTime)
                 ImGui::EndTable();
             }
 
-            ImGui::Text("UntitledDesktopFlow");
+            ImGui::Text("UntitledDesktopFlow:\n");
             if (ImGui::BeginTable("UntitledDesktop Flow applications", gridItems))
             {
-                ImGui::NextColumn();
-                for (auto& a : softwareSuite)
+                ImGui::TableNextColumn();
+                for (auto& a : flowSoftware)
                 {
                     ImGui::PushID(i);
-
-                    ImGui::Image((void*)(intptr_t)a.icon->get(), { 50.0f, 50.0f });
+                    ImGui::Image((void*)(intptr_t)a.icon.get(), { 96.0f, 96.0f });
                     if (ImGui::IsItemHovered())
                     {
                         ImGui::BeginTooltip();
@@ -128,7 +133,7 @@ void ude_welcome::Instance::tick(float deltaTime)
                         ImGui::EndTooltip();
                     }
                     ImGui::TextWrapped("%s", a.name.c_str());
-                    ImGui::NextColumn();
+                    ImGui::TableNextColumn();
 
                     ImGui::PopID();
                     i++;
@@ -139,11 +144,20 @@ void ude_welcome::Instance::tick(float deltaTime)
         }
         if (ImGui::BeginTabItem("Plugins", (bool*)nullptr))
         {
+            ImGui::TextWrapped("A many applications have support for third party plugins."
+                               "Installing plugins is easy due to our convenient package manager: the UntitledPackageManager.");
+            ImGui::TextWrapped("Commands can be installed through the \"upkg\" CLI utility, or the GUI UPKG Store");
+            ImGui::EndTabItem();
+        }
+        if (ImGui::BeginTabItem("Documentation", (bool*)nullptr))
+        {
+            ImGui::TextWrapped("This tab stores help information and documentation about our applications.");
             ImGui::EndTabItem();
         }
         ImGui::EndTabBar();
     }
-
+    if (ImGui::Button("Close"))
+        UImGui::Instance::shutdown();
 }
 
 void ude_welcome::Instance::end()
