@@ -20,6 +20,7 @@ void ude_welcome::Instance::begin()
 void ude_welcome::Instance::tick(float deltaTime)
 {
     tickAutohandle(deltaTime);
+
     ImGui::ShowDemoWindow((void*)nullptr);
     if (ImGui::BeginTabBar("Test"))
     {
