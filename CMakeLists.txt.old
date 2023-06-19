@@ -490,71 +490,71 @@ endif()
 # ----------------------------------------------------------- EOF ------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------------------------
 
-#if (WIN32)
-#    install(TARGETS UntitledImGuiFramework DESTINATION Program Files/ude-welcome/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
-#
-#    install(TARGETS ude-welcome DESTINATION Program Files/ude-welcome/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_APPLICATION_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_APPLICATION_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_APPLICATION_DIR")
-#
-#    install(FILES "${CONFIG_DIR_T}" DESTINATION Program Files/ude-welcome/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_CONFIG_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_CONFIG_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_CONFIG_DIR")
-#
-#    install(FILES "${CONTENT_DIR_T}" DESTINATION Program Files/ude-welcome/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_CONTENT_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_CONTENT_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_CONTENT_DIR")
-#
-#    install(FILES "${INCLUDE_DIR_T}" DESTINATION Program Files/ude-welcome)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_INCLUDE_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_INCLUDE_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_INCLUDE_DIR")
-#
-#    install(FILES test.txt DESTINATION tmp/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "TEST_TXT_INSTALL_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "TEST_TXT_INSTALL_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "TEST_TXT_INSTALL_DIR")
-#
-#else()
-#    install(TARGETS UntitledImGuiFramework DESTINATION lib/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
-#
-#    install(TARGETS ude-welcomeLib DESTINATION lib/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_APPLICATION_LIBRARY_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_APPLICATION_LIBRARY_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_APPLICATION_LIBRARY_DIR")
-#
-#    install(TARGETS ude-welcome DESTINATION bin/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_APPLICATION_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_APPLICATION_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_APPLICATION_DIR")
-#
-#    install(DIRECTORY Config/ DESTINATION etc/ude-welcome)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_CONFIG_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_CONFIG_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_CONFIG_DIR")
-#
-#    install(DIRECTORY Content/ DESTINATION share/ude-welcome)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_CONTENT_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_CONTENT_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_CONTENT_DIR")
-#
-#    install(DIRECTORY Source/ DESTINATION include/ude-welcome)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_INCLUDE_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_INCLUDE_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_INCLUDE_DIR")
-#
-#    install(FILES test.txt DESTINATION tmp/)
-#    target_compile_definitions(UntitledImGuiFramework PRIVATE "TEST_TXT_INSTALL_DIR")
-#    target_compile_definitions(ude-welcomeLib PRIVATE "TEST_TXT_INSTALL_DIR")
-#    target_compile_definitions(ude-welcome PRIVATE "TEST_TXT_INSTALL_DIR")
-#
-#endif()
+if (WIN32)
+    install(TARGETS UntitledImGuiFramework DESTINATION Program Files/ude-welcome/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
+
+    install(TARGETS ude-welcome DESTINATIONProgram Files/ude-welcome/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_APPLICATION_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_APPLICATION_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_APPLICATION_DIR")
+
+    install(FILES "${CONFIG_DIR_T}" DESTINATION Program Files/ude-welcome/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_CONFIG_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_CONFIG_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_CONFIG_DIR")
+
+    install(FILES "${CONTENT_DIR_T}" DESTINATION Program Files/ude-welcome/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_CONTENT_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_CONTENT_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_CONTENT_DIR")
+
+    install(FILES "${INCLUDE_DIR_T}" DESTINATION Program Files/ude-welcome)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_INCLUDE_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_INCLUDE_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_INCLUDE_DIR")
+
+    install(FILES test.txt DESTINATIONtmp/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "TEST_TXT_INSTALL_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "TEST_TXT_INSTALL_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "TEST_TXT_INSTALL_DIR")
+
+else()
+    install(TARGETS UntitledImGuiFramework DESTINATION lib/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_FRAMEWORK_LIBRARY_DIR")
+
+    install(TARGETS ude-welcomeLib DESTINATION lib/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_APPLICATION_LIBRARY_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_APPLICATION_LIBRARY_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_APPLICATION_LIBRARY_DIR")
+
+    install(TARGETS ude-welcome DESTINATIONbin/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_APPLICATION_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_APPLICATION_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_APPLICATION_DIR")
+
+    install(FILES "${CONFIG_DIR_T}" DESTINATION etc/ude-welcome)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_CONFIG_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_CONFIG_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_CONFIG_DIR")
+
+    install(FILES "${CONTENT_DIR_T}" DESTINATION share/ude-welcome)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_CONTENT_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_CONTENT_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_CONTENT_DIR")
+
+    install(FILES "${INCLUDE_DIR_T}" DESTINATION include/ude-welcome)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "UIMGUI_INCLUDE_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "UIMGUI_INCLUDE_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "UIMGUI_INCLUDE_DIR")
+
+    install(FILES test.txt DESTINATIONtmp/)
+    target_compile_definitions(UntitledImGuiFramework PRIVATE "TEST_TXT_INSTALL_DIR")
+    target_compile_definitions(ude-welcomeLib PRIVATE "TEST_TXT_INSTALL_DIR")
+    target_compile_definitions(ude-welcome PRIVATE "TEST_TXT_INSTALL_DIR")
+
+endif()

@@ -22,44 +22,44 @@ namespace ude_welcome
 
         virtual void onEventConfigureStyle(ImGuiStyle& style, ImGuiIO& io) override;
     private:
-        UImGui::Texture madladsquad = UImGui::Texture("../Content/madladsquadlogo.png");
-        UImGui::Texture flow = UImGui::Texture("../Content/ude-flow.png");
+        UImGui::Texture madladsquad = UImGui::Texture(UIMGUI_CONTENT_DIR"madladsquadlogo.png");
+        UImGui::Texture flow = UImGui::Texture(UIMGUI_CONTENT_DIR"ude-flow.png");
 
         Application softwareSuite[7] =
         {
             {
-                .iconName = "../Content/untitled-text-editor.png",
+                .iconName = UIMGUI_CONTENT_DIR"untitled-text-editor.png",
                 .name = "UntitledTextEditor",
                 .about = "A cross-platform, minimal, yet highly customisable text editor"
             },
             {
-                .iconName = "../Content/untitled-image-viewer.png",
+                .iconName = UIMGUI_CONTENT_DIR"untitled-image-viewer.png",
                 .name = "UntitledImageViewer",
                 .about = "A cross-platform, minimal, yet highly customisable image viewer"
             },
             {
-                .iconName = "../Content/untitled-calculator.png",
+                .iconName = UIMGUI_CONTENT_DIR"untitled-calculator.png",
                 .name = "UntitledCalculator",
                 .about = "A cross-platform, minimal, yet highly customisable calculator"
             },
             {
-                .iconName = "../Content/untitled-game-system-manager.png",
+                .iconName = UIMGUI_CONTENT_DIR"untitled-game-system-manager.png",
                 .name = "UntitledGameSystemManager",
                 .about = "A game system linux container manager application"
             },
             {
-                .iconName = "../Content/untitled-ibus-handwriting.png",
+                .iconName = UIMGUI_CONTENT_DIR"untitled-ibus-handwriting.png",
                 .name = "UntitledIBusHandwrite",
                 .about = "A handwriting input method for IBus"
             },
             {
-                .iconName = "../Content/untitled-terminal.png",
+                .iconName = UIMGUI_CONTENT_DIR"untitled-terminal.png",
                 .name = "UntitledTerminalEmulator",
                 .about = "A cross-platform, minimal, yet highly customisable terminal emulator with graphical "
                          "acceleration"
             },
             {
-                .iconName = "../Content/untitled-file-manager.png",
+                .iconName = UIMGUI_CONTENT_DIR"untitled-file-manager.png",
                 .name = "UntitledFileManager",
                 .about = "A cross-platform, minimal, yet highly customisable file manager"
             },
@@ -68,48 +68,48 @@ namespace ude_welcome
         Application deSoftware[9] =
         {
             {
-                .iconName = "../Content/ude-session-logout.png",
+                .iconName = UIMGUI_CONTENT_DIR"ude-session-logout.png",
                 .name = "UntitledDESessionLogout",
                 .about = "A session logout prompt"
             },
             {
-                .iconName = "../Content/ude-welcome.png",
+                .iconName = UIMGUI_CONTENT_DIR"ude-welcome.png",
                 .name = "UntitledDEWelcome",
                 .about = "An application for welcoming new user and for storing documentation.\n"
                          "The application you're currently using"
             },
             {
-                .iconName = "../Content/ude-polkit.png",
+                .iconName = UIMGUI_CONTENT_DIR"ude-polkit.png",
                 .name = "UntitledDEPolkitAgent",
                 .about = "A polkit agent for the desktop environment"
             },
             {
-                .iconName = "../Content/untitled-kbd.png",
+                .iconName = UIMGUI_CONTENT_DIR"untitled-kbd.png",
                 .name = "UntitledKBD",
                 .about = "A keyboard layout conversion application"
             },
             {
-                .iconName = "../Content/ude-package-manager.png",
+                .iconName = UIMGUI_CONTENT_DIR"ude-package-manager.png",
                 .name = "UntitledPackageManager",
                 .about = "A package manager for plugins for the UntitledDesktopEnvironment"
             },
             {
-                .iconName = "../Content/example-icon.png",
+                .iconName = UIMGUI_CONTENT_DIR"example-icon.png",
                 .name = "UntitledDESessionManager",
                 .about = "A session manager for the UntitledDesktopEnvironment"
             },
             {
-                .iconName = "../Content/ude-power-manager.png",
+                .iconName = UIMGUI_CONTENT_DIR"ude-power-manager.png",
                 .name = "UntitledDEPowerManager",
                 .about = "A power manager for the UntitledDesktopEnvironment"
             },
             {
-                .iconName = "../Content/example-icon.png",
+                .iconName = UIMGUI_CONTENT_DIR"example-icon.png",
                 .name = "UntitledDEWallpaperManager",
                 .about = "A wallpaper manager for the UntitledDesktopEnvironment"
             },
             {
-                .iconName = "../Content/ude-settings.png",
+                .iconName = UIMGUI_CONTENT_DIR"ude-settings.png",
                 .name = "UntitledDESettings",
                 .about = "A settings and configuration manager for the UntitledDesktopEnvironment"
             },
@@ -117,12 +117,12 @@ namespace ude_welcome
 
         Application flowSoftware[2] = {
             {
-                .iconName = "../Content/udf-application-launcher.png",
+                .iconName = UIMGUI_CONTENT_DIR"udf-application-launcher.png",
                 .name = "UDFApplicationLauncher",
                 .about = "An application launcher for the UntitledDesktop Flow"
             },
             {
-                .iconName = "../Content/udf-panel.png",
+                .iconName = UIMGUI_CONTENT_DIR"udf-panel.png",
                 .name = "UDFPanel",
                 .about = "A panel for the UntitledDesktop Flow"
             },
