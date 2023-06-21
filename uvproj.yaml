@@ -19,27 +19,3 @@ enabled-modules:
   toggles: false
   text_utils: false
   cli_parser: false
-install-override:
-  unix:
-    framework-library-dir: "lib/"
-    framework-application-library-dir: "lib/"
-    application-binary-dir: "bin/"
-    config-dir: "etc/ude-welcome"
-    content-dir: "share/ude-welcome"
-    include-dir: "include/ude-welcome"
-  windows:
-    framework-library-dir: "Program Files/ude-welcome/"
-    framework-application-library-dir: "Program Files/ude-welcome/"
-    application-binary-dir: "Program Files/ude-welcome/"
-    config-dir: "Program Files/ude-welcome/"
-    content-dir: "Program Files/ude-welcome/"
-    include-dir: "Program Files/ude-welcome"
-additional-installs:
-  unix:
-    - file: test.txt
-      directory: "tmp/"
-      macro-name: TEST_TXT_INSTALL_DIR
-  windows:
-    - file: test.txt
-      directory: "tmp/"
-      macro-name: TEST_TXT_INSTALL_DIR
