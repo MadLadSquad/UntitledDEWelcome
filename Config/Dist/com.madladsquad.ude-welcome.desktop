@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=UntitledDesktop Welcome
+GenericName=Welcome
+Comment=Welcomes the user and showcases information
+Icon=ude-welcome
+TryExec=ude-welcome
+Exec=ude-welcome
+Categories=Utility;
+Terminal=false
+StartupNotify=false
