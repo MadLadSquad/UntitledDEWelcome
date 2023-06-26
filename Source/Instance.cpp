@@ -3,6 +3,7 @@
 ude_welcome::Instance::Instance()
 {
     //initInfo.inlineComponents.push_back(&welcome);
+    initInfo = { UIMGUI_INIT_INFO_DEFAULT_DIRS, };
 }
 
 void ude_welcome::Instance::begin()
