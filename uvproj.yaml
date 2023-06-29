@@ -3,6 +3,7 @@ version: "1.0.0.0"
 engine-version: "1.0.0.0"
 build-mode-static: false
 build-mode-vendor: true
+system-wide: false
 enabled-modules:
   os: true
   dbus: false
@@ -29,3 +30,4 @@ additional-installs:
       directory: share/icons
       macro-name: UDE_WELCOME_ICON_DIR
       is-directory: false
+
