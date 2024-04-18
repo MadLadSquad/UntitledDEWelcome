@@ -6,4 +6,8 @@
 
 ![image](https://github.com/MadLadSquad/UntitledDEWelcome/assets/40400590/82cb31a8-785b-4b6d-a142-edf8ea0f9e69)
 
-A welcome application that helps new users learn about all features of the UntitledDesktopEnvironment
+A welcome application that helps new users learn about all features of the UntitledDesktopEnvironment.
+
+## Building
+This is a standard [UntitledImGuiFramework](https://github.com/MadLadSquad/UntitledImGuiFramework) project. Building instructions can be found 
+[here](https://github.com/MadLadSquad/UntitledImGuiFramework/wiki/Collaborating-on-a-project-with-the-framework#setting-up-another-persons-project).
