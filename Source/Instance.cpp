@@ -9,7 +9,7 @@ ude_welcome::Instance::Instance()
 void ude_welcome::Instance::begin()
 {
     beginAutohandle();
-    madladsquad.init(UIMGUI_CONTENT_DIR"madladsquadlogo.png")
+    madladsquad.init(UIMGUI_CONTENT_DIR"madladsquadlogo.png");
     madladsquad.load();
 
     flow.init(UIMGUI_CONTENT_DIR"ude-flow.png");
