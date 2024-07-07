@@ -9,24 +9,28 @@ ude_welcome::Instance::Instance()
 void ude_welcome::Instance::begin()
 {
     beginAutohandle();
-    madladsquad.loadImGui();
-    flow.loadImGui();
+    madladsquad.init(UIMGUI_CONTENT_DIR"madladsquadlogo.png")
+    madladsquad.load();
+
+    flow.init(UIMGUI_CONTENT_DIR"ude-flow.png");
+    flow.load();
+    
     for (auto& a : softwareSuite)
     {
         a.icon.init(a.iconName);
-        a.icon.loadImGui();
+        a.icon.load();
     }
 
     for (auto& a : deSoftware)
     {
         a.icon.init(a.iconName);
-        a.icon.loadImGui();
+        a.icon.load();
     }
 
     for (auto& a : flowSoftware)
     {
         a.icon.init(a.iconName);
-        a.icon.loadImGui();
+        a.icon.load();
     }
 }
 
