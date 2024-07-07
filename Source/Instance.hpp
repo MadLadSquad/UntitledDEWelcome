@@ -23,8 +23,8 @@ namespace ude_welcome
 
         virtual void onEventConfigureStyle(ImGuiStyle& style, ImGuiIO& io) override;
     private:
-        UImGui::Texture madladsquad = UImGui::Texture(UIMGUI_CONTENT_DIR"madladsquadlogo.png");
-        UImGui::Texture flow = UImGui::Texture(UIMGUI_CONTENT_DIR"ude-flow.png");
+        UImGui::Texture madladsquad{};
+        UImGui::Texture flow{};
 
         Application softwareSuite[7] =
         {
