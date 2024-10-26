@@ -1,12 +1,12 @@
 #include "Instance.hpp"
 
-ude_welcome::Instance::Instance()
+ude_welcome::Instance::Instance() noexcept
 {
     //initInfo.inlineComponents.push_back(&welcome);
     initInfo = { UIMGUI_INIT_INFO_DEFAULT_DIRS, };
 }
 
-void ude_welcome::Instance::begin()
+void ude_welcome::Instance::begin() noexcept
 {
     beginAutohandle();
     madladsquad.init(UIMGUI_CONTENT_DIR"madladsquadlogo.png");
@@ -34,13 +34,13 @@ void ude_welcome::Instance::begin()
     }
 }
 
-void ude_welcome::Instance::tick(float deltaTime)
+void ude_welcome::Instance::tick(const float deltaTime) noexcept
 {
     tickAutohandle(deltaTime);
 
     if (ImGui::BeginTabBar("Test"))
     {
-        if (ImGui::BeginTabItem("Welcome", (bool*)nullptr))
+        if (ImGui::BeginTabItem("Welcome", static_cast<bool*>(nullptr)))
         {
             ImGui::TextWrapped("Welcome to the Untitled Desktop Environment!\n\nThe completely independent and "
                                "highly hackable open-source desktop environment for Linux and other systems based on "
@@ -48,13 +48,13 @@ void ude_welcome::Instance::tick(float deltaTime)
                                "but really hackable and allows users to control all features of their applications.");
             ImGui::EndTabItem();
         }
-        if (ImGui::BeginTabItem("About us", (bool*)nullptr))
+        if (ImGui::BeginTabItem("About us", static_cast<bool*>(nullptr)))
         {
             ImGui::TextWrapped("The UntitledDesktopEnvironment is developed by MadLadSquad, a Bulgarian free "
                                "software collective. We're mostly volunteers that work on it in our free time."
                                "\n\nMore information, including getting involved, contributing and funding can be found"
                                "on our website at: https://madladsquad.com/");
-            ImGui::Image((void*)(intptr_t)madladsquad.get(), { 96.0f, 96.0f });
+            ImGui::Image(madladsquad.get(), { 96.0f, 96.0f });
             if (ImGui::IsItemHovered())
             {
                 ImGui::BeginTooltip();
@@ -62,7 +62,7 @@ void ude_welcome::Instance::tick(float deltaTime)
                 ImGui::EndTooltip();
             }
             ImGui::SameLine();
-            ImGui::Image((void*)(intptr_t)flow.get(), { 96.0f, 96.0f });
+            ImGui::Image(flow.get(), { 96.0f, 96.0f });
             if (ImGui::IsItemHovered())
             {
                 ImGui::BeginTooltip();
@@ -72,7 +72,7 @@ void ude_welcome::Instance::tick(float deltaTime)
 
             ImGui::EndTabItem();
         }
-        if (ImGui::BeginTabItem("Software", (bool*)nullptr))
+        if (ImGui::BeginTabItem("Software", static_cast<bool*>(nullptr)))
         {
             int gridItems = static_cast<int>(ImGui::GetContentRegionAvail().x / 96.0f);
             size_t i = 0;
@@ -83,9 +83,9 @@ void ude_welcome::Instance::tick(float deltaTime)
 
                 for (auto& a : softwareSuite)
                 {
-                    ImGui::PushID(i);
+                    ImGui::PushID(static_cast<int>(i));
 
-                    ImGui::Image((void*)(intptr_t)a.icon.get(), { 96.0f, 96.0f });
+                    ImGui::Image(a.icon.get(), { 96.0f, 96.0f });
                     if (ImGui::IsItemHovered())
                     {
                         ImGui::BeginTooltip();
@@ -106,8 +106,8 @@ void ude_welcome::Instance::tick(float deltaTime)
                 ImGui::TableNextColumn();
                 for (auto& a : deSoftware)
                 {
-                    ImGui::PushID(i);
-                    ImGui::Image((void*)(intptr_t)a.icon.get(), { 96.0f, 96.0f });
+                    ImGui::PushID(static_cast<int>(i));
+                    ImGui::Image(a.icon.get(), { 96.0f, 96.0f });
                     if (ImGui::IsItemHovered())
                     {
                         ImGui::BeginTooltip();
@@ -129,8 +129,8 @@ void ude_welcome::Instance::tick(float deltaTime)
                 ImGui::TableNextColumn();
                 for (auto& a : flowSoftware)
                 {
-                    ImGui::PushID(i);
-                    ImGui::Image((void*)(intptr_t)a.icon.get(), { 96.0f, 96.0f });
+                    ImGui::PushID(static_cast<int>(i));
+                    ImGui::Image(a.icon.get(), { 96.0f, 96.0f });
                     if (ImGui::IsItemHovered())
                     {
                         ImGui::BeginTooltip();
@@ -147,14 +147,14 @@ void ude_welcome::Instance::tick(float deltaTime)
             }
             ImGui::EndTabItem();
         }
-        if (ImGui::BeginTabItem("Plugins", (bool*)nullptr))
+        if (ImGui::BeginTabItem("Plugins", static_cast<bool*>(nullptr)))
         {
             ImGui::TextWrapped("A many applications have support for third party plugins."
                                "Installing plugins is easy due to our convenient package manager: the UntitledPackageManager.");
             ImGui::TextWrapped("Commands can be installed through the \"upkg\" CLI utility, or the GUI UPKG Store");
             ImGui::EndTabItem();
         }
-        if (ImGui::BeginTabItem("Documentation", (bool*)nullptr))
+        if (ImGui::BeginTabItem("Documentation", static_cast<bool*>(nullptr)))
         {
             ImGui::TextWrapped("This tab stores help information and documentation about our applications.");
             ImGui::EndTabItem();
@@ -165,18 +165,13 @@ void ude_welcome::Instance::tick(float deltaTime)
         UImGui::Instance::shutdown();
 }
 
-void ude_welcome::Instance::end()
+void ude_welcome::Instance::end() noexcept
 {
     endAutohandle();
 
 }
 
-ude_welcome::Instance::~Instance()
-{
-
-}
-
-void ude_welcome::Instance::onEventConfigureStyle(ImGuiStyle& style, ImGuiIO& io)
+void ude_welcome::Instance::onEventConfigureStyle(ImGuiStyle& style, ImGuiIO& io) noexcept
 {
 
 }
